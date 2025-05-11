@@ -1,0 +1,89 @@
+.custom-dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a slight overlay effect */
+}
+
+.custom-dialog {
+  background-color: #043873;
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.rounded-input {
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Ensures text area doesn't resize unexpectedly */
+textarea.rounded-input {
+  resize: none;
+}
+
+/* Dropdown inside input field */
+.input-group {
+  position: relative;
+}
+
+.dropdown-icon {
+  background-color: white;
+  border-left: none;
+  cursor: pointer;
+}
+
+.dropdown-icon i {
+  color: #666;
+}
+/* Hide default dropdown arrow when not in edit mode */
+.no-arrow {
+  appearance: none; /* Hide the dropdown arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important; /* Remove dropdown background */
+  background-color: #fff; /* Maintain background */
+  padding-right: 0px !important; /* Remove spacing */
+}
+
+.form-select {
+  display: inline-block;
+  width: auto;
+  min-width: 60px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 30px;
+  text-overflow: ellipsis;
+}
+/* 
+.input-group {
+  max-width: 400px;
+}
+ */
+ .no-dropdown {
+  /* Remove the default appearance and background (arrow) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  /* Optionally adjust padding so that spacing is reduced */
+  padding-right: 0.5rem;
+}
+
+
+
+
+

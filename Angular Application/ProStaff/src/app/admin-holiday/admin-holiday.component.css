@@ -1,0 +1,62 @@
+.custom-dialog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a slight overlay effect */
+  }
+  
+  .custom-dialog {
+    background-color: #043873;
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .rounded-input {
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  /* Ensures text area doesn't resize unexpectedly */
+  textarea.rounded-input {
+    resize: none;
+  }
+  
+  /* Dropdown inside input field */
+  .input-group {
+    position: relative;
+  }
+  
+  .dropdown-icon {
+    background-color: white;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-icon i {
+    color: #666;
+  }
+
+  ::ng-deep .holiday-date .mat-calendar-body-cell-content {
+    border: 2px solid #FFC107 !important;
+    background-color: transparent !important;
+    color: black !important;
+    border-radius: 50%;
+  }
+  ::ng-deep .mat-calendar-body-selected {
+    background-color: transparent !important; 
+    color: black !important;
+    border-radius: 50%;
+  }
+  

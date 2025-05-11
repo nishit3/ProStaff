@@ -1,0 +1,285 @@
+
+/* ---- FAQ SECTION ---- */
+.faq-section {
+  margin-top: 0px;
+  padding: 20px;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Title stays top, table stretches */
+  padding: 20px;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.faq-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.add-faq-btn {
+  background-color: #f3d271;
+  color: #121C3E;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-faq-btn:hover {
+  background-color: #FFC107;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ADD0FA;
+  padding: 20px;
+  margin-top: 60px;
+  margin-left: 0px;
+}
+
+.search-box {
+  display: flex;
+  width: 50%;
+  max-width: 500px;
+}
+
+.search-btn {
+  background: #253D90;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  outline: none;
+}
+
+/* Table Styling */
+.table-container {
+  flex: 1;
+  background: white;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 80px;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Ensures table alignment */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Ensures column width is respected */
+}
+
+/* Sticky Table Header */
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #E3EDF9;
+  z-index: 10;
+  height: 50px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  background-color: #E3EDF9;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Table Body */
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  vertical-align: middle; /* Aligns content to middle */
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #F5F9FF;
+}
+
+/* No Records */
+.no-record {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #303f9f;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+/* ----- Add FAQ Modal Styles ----- */
+
+/* The overlay that dims the page and centers the dialog */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 250px; /* or 0 if you want to cover the sidebar too */
+  width: calc(100% - 250px); /* so it doesn't hide the sidebar, or 100% if you want to cover everything */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* above everything else */
+}
+
+/* Our custom Add FAQ dialog box */
+.faq-dialog {
+  width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  /* remove any line under the title */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Title */
+.faq-dialog h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* Form fields */
+.faq-dialog .form-group {
+  margin-bottom: 15px;
+}
+
+.faq-dialog label {
+  display: block;
+  font-size: 16px;
+  /* font-weight: 500; */
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.faq-dialog .form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #E3EDF9;
+}
+
+.faq-dialog textarea {
+  height: 100px;
+}
+
+/* Buttons */
+.faq-dialog .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.faq-dialog .btn {
+  width: 48%;
+  padding: 12px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.faq-dialog .btn-create {
+  background-color: #3F861E;
+  color: white;
+}
+
+.faq-dialog .btn-cancel {
+  border: 2px solid red;
+  color: red;
+  background: white;
+}
+
+.faq-dialog .btn-cancel:hover {
+  background: red;
+  color: white;
+}
+.details-btn {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.details-btn:hover {
+  background-color: #0056b3;
+}
+.page-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px); /* adjust if navbar/footer heights differ */
+  margin-left: 250px; /* sidebar width */
+  background-color: #ADD0FA;
+}

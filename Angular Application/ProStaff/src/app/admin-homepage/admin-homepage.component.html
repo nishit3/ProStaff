@@ -1,0 +1,179 @@
+<app-admin-sidebar></app-admin-sidebar>
+<app-admin-navbar></app-admin-navbar>
+
+<div style="display: flex; width: 100%; min-height: 100vh; margin: 0; padding: 0; background-color: #ADD0FA;">
+  <!-- MAIN CONTENT AREA -->
+  <div style="flex: 1; margin-left: 250px; padding: 20px; transition: margin-left 0.3s ease-in-out;">
+    <!-- DASHBOARD CONTENT -->
+    <div style="margin-top: 80px; padding: 10px;">
+      <!-- Page Title -->
+      <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Dashboard</h2>
+
+      <!-- Leaves Section -->
+      <a routerLink="/adminLeaveManagement"
+        style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; align-items: flex-start; margin-bottom: 40px; width: 170px; cursor: pointer; text-decoration: none; color: inherit;">
+        <div
+          style="display: flex; align-items: center; gap: 30px; background-color: #4a96d3; color: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+          <img src="images/adminDashboard/leave-management.png" alt="Leaves Icon"
+            style="width: 55px; height: 56px; margin-left: 10px;" />
+          <div>
+            <p style="font-size: 25px; font-weight: bold; margin: 0;">{{ totalLeavesCount }}</p>
+            <p style="font-size: 18px; margin: 0;">Leaves</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Departments, Teams, Employees -->
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: stretch; margin-bottom: 40px; width: 100%;">
+
+        <!-- Departments Card -->
+        <a routerLink="/adminDepartment" style="background-color: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+           flex: 1; min-width: 300px; height: 280px; display: flex; flex-direction: column; cursor: pointer; 
+           text-decoration: none; color: inherit;">
+
+          <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">Departments</h2>
+
+          <!-- ✅ Department list -->
+          <div *ngIf="departments.length > 0"
+            style="display: flex; flex-direction: column; overflow-y: auto; flex: 1; padding-right: 10px;">
+            <div *ngFor="let dept of departments; let last = last" [ngStyle]="{
+        'display': 'flex',
+        'justify-content': 'space-between',
+        'align-items': 'center',
+        'background-color': '#e3edf9',
+        'padding': '15px',
+        'border-radius': '10px',
+        'box-shadow': '2px 2px 5px rgba(0,0,0,0.1)',
+        'margin-bottom': last ? '0px' : '10px'
+      }">
+              <h3 style="font-size: 18px; font-weight: bold; margin: 0;">{{ dept }}</h3>
+            </div>
+          </div>
+
+          <!-- ❌ No departments -->
+          <div *ngIf="departments.length === 0" style="flex: 1; display: flex; justify-content: center; align-items: center; text-align: center; 
+             color: red; font-size: 20px;font-weight: bold;">
+            No Department found
+          </div>
+        </a>
+
+        <!-- Teams Card -->
+        <a routerLink="/adminTeams" style="background-color: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+           flex: 1; min-width: 300px; height: 280px; display: flex; flex-direction: column; cursor: pointer; 
+           text-decoration: none; color: inherit;">
+
+          <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">Teams</h2>
+
+          <!-- ✅ Team list -->
+          <div *ngIf="teams.length > 0"
+            style="display: flex; flex-direction: column; overflow-y: auto; flex: 1; padding-right: 10px;">
+            <div *ngFor="let team of teams; let last = last" [ngStyle]="{
+        'display': 'flex',
+        'justify-content': 'space-between',
+        'align-items': 'center',
+        'background-color': '#e3edf9',
+        'padding': '15px',
+        'border-radius': '10px',
+        'box-shadow': '2px 2px 5px rgba(0,0,0,0.1)',
+        'margin-bottom': last ? '0px' : '10px'
+      }">
+              <h3 style="font-size: 18px; font-weight: bold; margin: 0;">{{ team }}</h3>
+            </div>
+          </div>
+
+          <!-- ❌ No teams -->
+          <div *ngIf="teams.length === 0" style="flex: 1; display: flex; justify-content: center; align-items: center; text-align: center; 
+             color: red; font-size: 20px;font-weight: bold;">
+            No Teams found
+          </div>
+        </a>
+
+        <!-- Total Employees Card -->
+        <div style="background-color: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+           flex: 1; min-width: 300px; height: 280px; display: flex; flex-direction: column;">
+
+          <h3 style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">Total Employees</h3>
+
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="images/man.png" alt="Employee Icon" style="width: 60px; height: 60px;" />
+            <p style="font-size: 22px; font-weight: bold; margin: 0;">{{ totalEmployees }}<br />
+              <span style="font-size: 18px; color: #555;">Employees</span>
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; flex: 1; margin-top: 10px; padding-right: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+              <img src="images/adminDashboard/Male.png" alt="Male" style="width: 40px; height: 40px;" />
+              <span style="font-size: 18px; font-weight: bold;">Male</span>
+              <span style="font-size: 18px; font-weight: bold;">{{ totalMaleEmp }}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+              <img src="images/adminDashboard/Female.png" alt="Female" style="width: 40px; height: 40px;" />
+              <span style="font-size: 18px; font-weight: bold;">Female</span>
+              <span style="font-size: 18px; font-weight: bold;">{{ totalFemaleEmp }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Events & Logs -->
+      <!-- Events & Logs -->
+      <div class="mt-3"
+        style="display: flex; flex-wrap: wrap; gap: 30px; align-items: stretch; justify-content: space-between;">
+
+        <!-- Upcoming Events -->
+        <a routerLink="/adminUpcomingEvents" style="background-color: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+         flex: 1 1 45%; min-width: 300px; height: 300px; display: flex; flex-direction: column; 
+         text-decoration: none; color: inherit;">
+
+          <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">Upcoming Events</h2>
+
+          <!-- ✅ Events List -->
+          <div *ngIf="upcomingEvents.length > 0" style="overflow-y: auto; flex: 1; padding-right: 10px;">
+            <div *ngFor="let event of upcomingEvents" style="display: flex; justify-content: space-between; align-items: center; 
+             background-color: #e3edf9; padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+              <div>
+                <h3 style="font-size: 18px; font-weight: bold; margin: 0;">{{ event.name }}</h3>
+                <p style="margin: 0;">{{ event.description }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ❌ No Events Message -->
+          <div *ngIf="upcomingEvents.length === 0" style="flex: 1; display: flex; justify-content: center; align-items: center; text-align: center; 
+           color: red; font-size: 20px; font-weight: bold;">
+            No upcoming events found
+          </div>
+        </a>
+
+        <!-- Admin Logs -->
+        <div style="background-color: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+         flex: 1 1 45%; min-width: 300px; height: 300px; display: flex; flex-direction: column; 
+         text-decoration: none; color: inherit;">
+
+          <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">Admin Logs</h2>
+
+          <!-- ✅ Logs List -->
+          <div *ngIf="logs.length > 0" style="overflow-y: auto; flex: 1; padding-right: 5px;">
+            <div *ngFor="let log of logs" style="display: grid; grid-template-columns: auto 90px 1fr; gap: 12px; align-items: center; 
+             background-color: #e3edf9; padding: 15px; border-radius: 15px; margin-bottom: 10px;">
+              <span [ngStyle]="{ 'color': getColor(log.type), 'font-weight': 'bold' }">{{ log.type }}</span>
+              <span>{{ formatDate(log.date) }}</span>
+              <span style="font-weight: bold;">{{ log.message }}</span>
+            </div>
+          </div>
+
+          <!-- ❌ No Logs Message -->
+          <div *ngIf="logs.length === 0" style="flex: 1; display: flex; justify-content: center; align-items: center; text-align: center; 
+           color: red; font-size: 20px; font-weight: bold;">
+            No Logs found
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

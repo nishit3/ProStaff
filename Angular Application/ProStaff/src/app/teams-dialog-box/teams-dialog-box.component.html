@@ -1,0 +1,28 @@
+<div class="dialog-container">
+    <!-- Title -->
+    <div class="dialog-header">
+      <h2>Select Teams</h2>
+    </div>
+  
+    <!-- Team Selection List -->
+    <div class="team-list">
+      <label class="select-all">
+        <input type="checkbox" (change)="toggleSelectAll()" [checked]="isAllSelected()" />
+        Select All
+      </label>
+  
+      <!-- Scrollable List for Teams -->
+      <div class="scroll-container">
+        <label *ngFor="let team of teamsList" class="team-item">
+          <input type="checkbox" [(ngModel)]="team.selected" />
+          {{ team.name }}
+        </label>        
+      </div>
+    </div>
+  
+    <!-- Submit & Cancel Buttons -->
+    <div class="submit-button">
+      <button (click)="submitSelection()">SUBMIT</button>
+    </div>
+  </div>
+  

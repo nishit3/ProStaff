@@ -1,0 +1,140 @@
+/* ---- LAYOUT WRAPPER ---- */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ADD0FA;
+    padding: 20px;
+    margin-left: 250px;
+}
+  /* ADD EMPLOYEE CARD */
+  .add-employee-card {
+    background-color: #ADD0FA;
+    border-radius: 25px;
+    padding: 0px;
+    margin: 10px 50px 50px 50px;
+    /* box-shadow: 0 4px 4px 5px rgba(0, 0, 0, 0.25); */
+  }
+  .page-heading {
+    color: #000;
+    margin-top: 70px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+  /* Form Styles */
+  .add-employee-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    column-gap: 80px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+  
+  .form-group label {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    width: auto;
+  }
+  
+  /* Error message style */
+  .error-msg {
+    color: red;
+    font-size: 13px;
+    margin-top: 3px;
+    margin-left: 5px;
+  }
+  
+  /* Upload Photo Section */
+  .upload-container {
+    display: flex;
+    /* align-items: center; */
+    gap: 15px;
+    /* margin-top: 10px; */
+    width: 100%;
+  }
+  
+  .upload-btn {
+    background-color: #253D90;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .upload-btn:hover {
+    background-color: #1d2f70;
+  }
+  
+  .file-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Cancel upload button styling */
+  .cancel-upload-btn {
+    background: transparent;
+    border: none;
+    color: red;
+    /* font-size: 20px; */
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .photo-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+  }
+  
+  /* Sub-heading for Bank Details */
+  .sub-heading {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background-color: #ffe492;
+    color: #043873;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    /* align-self: center; */
+    margin: 20px auto 0;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .submit-btn:hover {
+    /* opacity: 0.8; */
+    background-color: yellow;
+  }

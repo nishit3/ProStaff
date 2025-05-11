@@ -1,0 +1,78 @@
+<div *ngIf="showAlert" class="global-alert" [ngStyle]="{ 
+    'background-color': isError ? '#dc3545' : '#cfe2ff',
+    'color': isError ? '#fff' : '#1b508d' 
+  }">
+    {{ alertMessage }}
+</div>
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center custom-bg"
+    style="flex-direction: column;">
+    <div
+        style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding-bottom: 20px;">
+        <img src="images/appIcon.png" alt="Logo" width="37" height="29" class="me-2">
+        <h2 class="title-text" style="padding-left: 10px;">ProStaff</h2>
+    </div>
+
+    <div class="card p-4 shadow-lg" style="width: 100%; max-width: 600px;">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <h4 class="text-center mb-3">Register Organization</h4>
+
+            <!-- ✅ Profile Image Upload -->
+            <div class="profile-photo-container d-flex flex-column align-items-center text-center mb-3">
+                <img *ngIf="selectedFilePreview" [src]="selectedFilePreview" alt="Profile Photo"
+                    class="img-thumbnail mb-2"
+                    style="width: 60%; height: 170px; object-fit: fill; border-radius: 8px;" />
+
+                <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*"
+                    style="display: none;" />
+                <button type="button" class="btn btn-secondary btn-sm" (click)="fileInput.click()">Upload Organization
+                    Image</button>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="organizationName" class="form-label custom-labels">Organization Name</label>
+                <input type="text" id="organizationName" class="form-control" formControlName="organizationName"
+                    placeholder="Enter organization name" />
+                <div *ngIf="signupForm.controls['organizationName'].invalid && signupForm.controls['organizationName'].touched"
+                    class="text-danger" style="font-size: 13px;">
+                    Organization name is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="adminFullName" class="form-label custom-labels">Admin Full Name</label>
+                <input type="text" id="adminFullName" class="form-control" formControlName="adminFullName"
+                    placeholder="Enter full name" />
+                <div *ngIf="signupForm.controls['adminFullName'].invalid && signupForm.controls['adminFullName'].touched"
+                    class="text-danger" style="font-size: 13px;">
+                    Admin full name is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="adminEmail" class="form-label custom-labels">Admin Email</label>
+                <input type="email" id="adminEmail" class="form-control" formControlName="adminEmail"
+                    placeholder="Enter admin email" />
+                <div *ngIf="signupForm.controls['adminEmail'].invalid && signupForm.controls['adminEmail'].touched"
+                    class="text-danger" style="font-size: 13px;">
+                    Valid email is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="adminContact" class="form-label custom-labels">Contact Number</label>
+                <input type="tel" id="adminContact" class="form-control" formControlName="adminContact"
+                    placeholder="Enter contact number" maxlength="10" inputmode="numeric" pattern="[0-9]*"
+                    (input)="onDigitOnly($event)" />
+                <div *ngIf="signupForm.controls['adminContact'].invalid && signupForm.controls['adminContact'].touched"
+                    class="text-danger" style="font-size: 13px;">
+                    Contact number must be exactly 10 digits.
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary w-100 bg-black" [disabled]="signupForm.invalid">Pay
+                Now</button>
+        </form>
+    </div>
+</div>

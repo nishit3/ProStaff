@@ -1,0 +1,28 @@
+<div class="custom-dialog">
+    <h4 class="text-white text-center mb-3">Salary Remuneration</h4>
+  
+    <!-- Total Remuneration Message -->
+    <div class="mb-3">
+      <p class="text-white text-center fw-bold" *ngIf="message">{{ message }}</p>
+    </div>
+  
+    <!-- Submit Buttons -->
+    <div class="d-flex gap-2">
+      <!-- Proceed Button -->
+      <button
+        class="btn w-50"
+        style="background-color: #FFE492; font-weight: bold;"
+        (click)="closeDialog(true)">
+        PROCEED
+      </button>
+  
+      <!-- Cancel Button -->
+      <button
+        class="btn w-50"
+        style="background-color: #f44336; color: white;"
+        (click)="closeDialog(false)">
+        CANCEL
+      </button>
+    </div>
+  </div>
+  

@@ -1,0 +1,61 @@
+<app-admin-sidebar />
+<app-admin-navbar />
+<div class="page-body">
+    <div class="search-container">
+        <div class="search-box">
+            <button class="search-btn">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="search-input">
+        </div>
+    </div>
+
+    <!-- DESIGNATIONS CONTENT -->
+    <div class="main-container">
+        <div class="inline-padding">
+            <!-- Title & Button Aligned in Same Row -->
+            <div class="departments-section d-flex justify-content-between align-items-center">
+                <h2 class="departments-title m-0">Designations</h2>
+                <button class="add-department-btn" (click)="openDialog()">
+                    Add Designation
+                </button>
+            </div>
+
+            <div class="table-container" [class.no-scroll]="filteredDesignations.length < 5">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">S No</th>
+                            <th style="width: 20%;">Designation</th>
+                            <th style="width: 35%;">Description</th>
+                            <th style="width: 12%;">Total Employees</th>
+                            <th style="width: 15%;">Details</th>
+                            <th style="width: 13%;">Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let desg of filteredDesignations; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ desg.name }}</td>
+                            <td>{{ desg.description }}</td>
+                            <td>{{ desg.employeeCount }}</td>
+                            <td>
+                                <button class="details-btn" (click)="viewEmployees(desg.id)">View Employees</button>
+                            </td>
+                            <td>
+                                <button class="delete-btn" (click)="deleteDesignation(desg.id,i)">Delete</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="filteredDesignations.length === 0">
+                            <td colspan="6"
+                                style="height: 200px; text-align: center; vertical-align: middle; color: red; font-size: 18px;font-weight: bold;">
+                                No Designation found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END DESIGNATIONS CONTENT -->
+
+<app-footer />

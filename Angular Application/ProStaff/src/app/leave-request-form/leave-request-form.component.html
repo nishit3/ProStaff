@@ -1,0 +1,28 @@
+<div class="custom-dialog">
+  <h4 class="text-white text-center mb-3">Apply for Leave</h4>
+
+  <!-- Date Input -->
+  <div class="mb-3">
+    <label class="form-label text-white">Date</label>
+    <input type="text" class="form-control rounded-input" [(ngModel)]="leaveDate" placeholder="yyyy-mm-dd" />
+  </div>
+
+  <!-- Type of Leave Dropdown -->
+  <div class="mb-3">
+    <label class="form-label text-white">Type of Leave</label>
+    <select class="form-control rounded-input" [(ngModel)]="type">
+      <option value="PAID">Paid Leave</option>
+      <option value="UNPAID">Unpaid Leave</option>
+      <option value="SICK">Sick Leave</option>
+    </select>
+  </div>
+
+  <!-- Description Textarea -->
+  <div class="mb-3">
+    <label class="form-label text-white">Description</label>
+    <textarea class="form-control rounded-input" rows="3" [(ngModel)]="reason" placeholder="Enter Description"></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <button class="btn w-100" style="background-color: #FFE492; font-weight: bold;" (click)="submitRequest()">SUBMIT</button>
+</div>

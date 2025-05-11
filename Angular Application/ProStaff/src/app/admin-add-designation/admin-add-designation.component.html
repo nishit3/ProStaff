@@ -1,0 +1,24 @@
+
+<div class="custom-dialog">
+    <h4 class="text-lg-start mb-3 font-weight-bold title-label">Add Designation</h4>
+
+    <!-- Date Input -->
+
+    <!-- Event Title -->
+    <div class="mb-3">
+      <label class="form-label custom-labels">Name</label>
+      <input type="text" class="form-control custom-labels" [(ngModel)]="name" placeholder="Enter Name">
+    </div>
+
+    <!-- Event Description -->
+    <div class="mb-3">
+      <label class="form-label custom-labels">Description</label>
+      <textarea class="form-control custom-labels" [(ngModel)]="description" placeholder="Enter Answer" rows="5"></textarea>
+    </div>
+
+    <!-- Button Row -->
+    <div class="button-row">
+      <button class="add-btn custom-labels" (click)="submitDesign()">Create</button>
+      <button class="cancel-btn custom-labels" (click)="closeDialog()">Cancel</button>
+    </div>
+

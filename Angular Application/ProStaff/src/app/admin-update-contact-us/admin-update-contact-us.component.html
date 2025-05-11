@@ -1,0 +1,30 @@
+<div class="custom-dialog">
+    <h4 class="text-lg-start mb-3 font-weight-bold title-label">Update Contact Us</h4>
+    
+    <!-- Contact Number Input -->
+    <div class="mb-3">
+        <label class="form-label custom-labels">Contact No.</label>
+        <input type="text" class="form-control custom-labels" [(ngModel)]="contactNo" placeholder="Enter Contact No"
+            (keypress)="allowOnlyNumbers($event)" />
+    </div>
+
+
+
+    <!-- Event Title -->
+    <div class="mb-3">
+        <label class="form-label custom-labels">Email</label>
+        <input type="email" class="form-control custom-labels" [(ngModel)]="contactEmail" placeholder="Enter Email">
+    </div>
+
+    <!-- Event Description -->
+    <div class="mb-3">
+        <label class="form-label custom-labels">Description</label>
+        <textarea class="form-control custom-labels" [(ngModel)]="contactDescription"
+            placeholder="Enter Contact Description" rows="5"></textarea>
+    </div>
+
+    <!-- Button Row -->
+    <div class="button-row">
+        <button class="add-btn custom-labels" (click)="submitEvent()">Update</button>
+        <button class="cancel-btn custom-labels" (click)="closeDialog()">Cancel</button>
+    </div>

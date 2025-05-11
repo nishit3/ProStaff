@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.title-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+  }
+
+  .custom-bg {
+    background-color: #043873;
+  }
+
+  .custom-labels {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+  }

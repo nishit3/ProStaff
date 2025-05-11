@@ -1,0 +1,73 @@
+<app-admin-sidebar />
+<app-admin-navbar />
+<div class="page-body">
+    <div class="search-container">
+        <div class="search-box">
+            <button class="search-btn">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="search-input">
+        </div>
+    </div>
+    <div class="main-container">
+        <!-- LEAVE MANAGEMENT CONTENT -->
+        <div class="leave-management-section">
+            <h2 class="leave-management-title">Leave Management</h2>
+            <div class="table-container" [class.no-scroll]="filteredleaves.length < 5">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">ID</th>
+                            <th style="width: 25%;">Reason</th>
+                            <th style="width: 15%;">Leave Date</th>
+                            <th style="width: 10%;">Leave Type</th>
+                            <th style="width: 15%;">Request Date</th>
+                            <th style="width: 15%;">Status</th>
+                            <th style="width: 20%;">Manage Request</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Generate rows from TS data -->
+                        <tr *ngFor="let leave of filteredleaves">
+                            <td>{{ leave.id }}</td>
+                            <td>{{ leave.reason }}</td>
+                            <td>{{ leave.leaveDate }}</td>
+                            <td>{{ leave.type }}</td>
+                            <td>{{ leave.requestDate }}</td>
+                            <td>{{leave.status}}</td>
+                            <td>
+                                <!-- If status is PENDING -->
+                                <ng-container *ngIf="leave.status === 'PENDING'; else statusIcons">
+                                    <button class="approve-btn"
+                                        (click)="openGrantLeaveDialog(leave.id,leave.employee_email)">
+                                        <img src="images/approved.jpg" alt="Approve" class="approve-icon" />
+                                    </button>
+                                    <button class="reject-btn" (click)="rejectLeave(leave.id)">
+                                        <img src="images/rejected.jpg" alt="Reject" class="reject-icon" />
+                                    </button>
+                                </ng-container>
+
+                                <!-- If status is ACCEPTED or REJECTED -->
+                                <ng-template #statusIcons>
+                                    <ng-container *ngIf="leave.status === 'ACCEPTED'">
+                                        <img src="images/approved.jpg" alt="Approved" class="approve-icon" />
+                                    </ng-container>
+                                    <ng-container *ngIf="leave.status === 'REJECTED'">
+                                        <img src="images/rejected.jpg" alt="Rejected" class="reject-icon" />
+                                    </ng-container>
+                                </ng-template>
+                            </td>
+
+                        </tr>
+                        <tr *ngIf="filteredleaves.length === 0">
+                            <td colspan="7"
+                                style="height: 200px; text-align: center; vertical-align: middle; color: red; font-size: 18px;font-weight: bold;">
+                                No Leaves found
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END LEAVE MANAGEMENT CONTENT -->
+    </div>
+</div>
+<app-footer />

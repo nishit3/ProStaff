@@ -1,0 +1,33 @@
+<div class="custom-dialog">
+    <h4 class="text-lg-start mb-3 font-weight-bold title-label">Add Filter</h4>
+
+    <!-- Designation Input -->
+    <div class="mb-3">
+        <label class="form-label custom-labels">Designation</label>
+        <input type="text" class="form-control custom-labels" style="cursor: pointer;" 
+               [(ngModel)]="designation" readonly (click)="openDesgSelectionDialog()"
+               placeholder="Select designations">
+    </div>
+
+    <!-- Department Input -->
+    <div class="mb-3">
+        <label class="form-label custom-labels">Department</label>
+        <input type="text" class="form-control custom-labels" style="cursor: pointer;" 
+               [(ngModel)]="department" readonly (click)="openDeptSelectionDialog()"
+               placeholder="Select departments">
+    </div>
+
+    <!-- Teams Input -->
+    <div class="mb-3">
+        <label class="form-label custom-labels">Teams</label>
+        <input type="text" class="form-control custom-labels" style="cursor: pointer;" 
+               [(ngModel)]="teams" readonly (click)="openTeamSelectionDialog()"
+               placeholder="Select teams">
+    </div>
+
+    <!-- Button Row -->
+    <div class="button-row">
+        <button class="add-btn custom-labels" (click)="submitEvent()">Filter</button>
+        <button class="cancel-btn custom-labels" (click)="closeDialog()">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="custom-dialog">
+    <h4 class="text-lg-start mb-1 font-weight-bold title-label" 
+        style="padding: 10px 20px 0; color: white; font-size: 16px;">
+        Notifications
+    </h4>
+
+    <!-- Scrollable Notifications List -->
+    <div class="notifications-list" *ngIf="notifications.length > 0; else noNotifications">
+        <div class="scrollable-container">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let notification of notifications; let last = last">
+                    <h6 class="mb-1">{{ notification.message }}</h6>
+                    <p class="text-muted mb-0">{{ notification.date }}</p>
+
+                    <!-- Divider, but NOT after the last item -->
+                    <!-- <div *ngIf="!last" class="divider"></div> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- No Notifications Message -->
+    <ng-template #noNotifications>
+        <p class="text-muted text-center" style="color: red;">No notifications available.</p>
+    </ng-template>
+</div>

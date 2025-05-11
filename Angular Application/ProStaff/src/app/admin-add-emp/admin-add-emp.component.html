@@ -1,0 +1,200 @@
+<app-admin-sidebar></app-admin-sidebar>
+<app-admin-navbar></app-admin-navbar>
+<div class="main-container">
+    <h2 class="page-heading">Add Employee</h2>
+
+    <!-- ADD EMPLOYEE CARD -->
+    <div class="add-employee-card">
+        <form class="add-employee-form" #addEmployeeForm="ngForm" (ngSubmit)="submitForm(addEmployeeForm)">
+            <!-- Row 1 -->
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="fullName" [(ngModel)]="fullName" required #fullNameModel="ngModel"
+                    class="form-control" placeholder="Enter full name" />
+
+                <div class="error-msg" *ngIf="fullNameModel.invalid && fullNameModel.touched">
+                    Please fill the above field !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Designation</label>
+                <select [(ngModel)]="selectedDesignationId" name="designation" required #designationRef="ngModel"
+                    class="form-control">
+                    <option value="" disabled>Select Designation</option>
+                    <option *ngFor="let desg of designationsList" [value]="desg.id">{{ desg.name }}</option>
+                </select>
+                <div class="error-msg" *ngIf="designationRef.invalid && designationRef.touched">
+                    Please select a designation !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <select [(ngModel)]="selectedDepartmentId" name="department" required #departmentRef="ngModel"
+                    class="form-control">
+                    <option value="" disabled>Select Department</option>
+                    <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+                </select>
+                <div class="error-msg" *ngIf="departmentRef.invalid && departmentRef.touched">
+                    Please select a department !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Project Manager</label>
+                <input type="text" name="projectManager" [(ngModel)]="projectManager" required
+                    #projectManagerRef="ngModel" class="form-control" />
+                <div class="error-msg" *ngIf="projectManagerRef.invalid && projectManagerRef.touched">
+                    Please fill the above field !!
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" name="contactNumber" [(ngModel)]="contactNumber" required pattern="^[0-9]{10}$"
+                    #contactNumberRef="ngModel" class="form-control" placeholder="10-digit phone number" />
+                <div class="error-msg" *ngIf="contactNumberRef.invalid && contactNumberRef.touched">
+                    Please fill a valid 10-digit number !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Emergency Contact Number</label>
+                <input type="text" name="emergencyContactNumber" [(ngModel)]="emergencyContactNumber" required
+                    pattern="^[0-9]{10}$" #emergencyContactNumberRef="ngModel" class="form-control"
+                    placeholder="10-digit phone number" />
+                <div class="error-msg" *ngIf="emergencyContactNumberRef.invalid && emergencyContactNumberRef.touched">
+                    Please enter a valid 10-digit phone number !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select name="gender" [(ngModel)]="gender" required #genderRef="ngModel" class="form-control">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                </select>
+                <div class="error-msg" *ngIf="genderRef.invalid && genderRef.touched">
+                    Please select a gender !!
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" name="dateOfBirth" [(ngModel)]="dateOfBirth" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Joining Date</label>
+                <input type="date" name="joiningDate" [(ngModel)]="joiningDate" class="form-control" />
+            </div>
+
+            <!-- Row 3 -->
+            <div class="form-group">
+                <label>Teams</label>
+                <input type="text" name="teams" class="form-control" [value]="teams" (click)="openTeamSelectionDialog()"
+                    style="cursor: pointer;" readonly />
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Skills</label>
+                <input type="text" name="skills" [(ngModel)]="skills" required #skillsRef="ngModel" class="form-control"
+                    placeholder="E.g. Angular, Node.js, etc." />
+                <div class="error-msg" *ngIf="skillsRef.invalid && skillsRef.touched">
+                    Please fill the above field !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" [(ngModel)]="email" required #emailRef="ngModel" class="form-control"
+                    placeholder="example@domain.com" />
+                <div class="error-msg" *ngIf="emailRef.invalid && emailRef.touched">
+                    Please fill a valid email !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" name="address" [(ngModel)]="address" #addressRef="ngModel" class="form-control" />
+                <div class="error-msg" *ngIf="addressRef.invalid && addressRef.touched">
+                    Please fill a valid address !!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Salary</label>
+                <input type="text" name="salary" placeholder="Enter salary" class="form-control" pattern="^[0-9]*$"
+                    required #salaryInput="ngModel" [(ngModel)]="salary" />
+
+                <div class="error-msg" *ngIf="salaryInput.invalid && salaryInput.touched">
+                    Please enter a valid numeric salary.
+                </div>
+            </div>
+            <!-- Photo Upload Section -->
+
+            <!-- Upload Block -->
+            <!-- Upload Container -->
+            <div class="upload-container" style="flex-direction: column; align-self: flex-start;">
+                <div class="photo-label">Profile Photo</div>
+
+                <div style="display: flex; flex-direction: row; gap: 15px;">
+                    <label for="fileInput" class="upload-btn">Upload Photo</label>
+                    <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" hidden />
+
+                    <div
+                        style="width: 35%; height: 40px; background-color: white; border-radius: 5px; margin-bottom: 0px; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="file-name" *ngIf="fileName">{{ fileName }}</div>
+                        <button type="button" class="cancel-upload-btn" *ngIf="fileName" (click)="cancelUpload()"
+                            style="margin-bottom: 5px;">
+                            X
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Size Validation Message -->
+                <!-- <div *ngIf="!isFileTooSmall" style="color: red; font-size: 12px; margin-top: 5px;">
+                    Image size must be at least 20KB.
+                </div> -->
+            </div>
+
+
+
+            <!-- Sub-Heading: Add Employee Bank Details -->
+            <h3 class="sub-heading">Add Employee Bank Details</h3>
+
+            <!-- Row 4 -->
+            <div class="form-group">
+                <label>Bank Name</label>
+                <input type="text" name="bankName" [(ngModel)]="bankName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Branch Name</label>
+                <input type="text" name="branchName" [(ngModel)]="branchName" class="form-control" />
+            </div>
+
+            <!-- Row 5 -->
+            <div class="form-group">
+                <label>IFC Code</label>
+                <input type="text" name="ifscCode" [(ngModel)]="ifcCode" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Account Number</label>
+                <input type="text" name="accountNumber" [(ngModel)]="accountNumber" class="form-control" />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn" style="justify-content: center;"
+                [disabled]="addEmployeeForm.invalid">
+                SUBMIT
+            </button>
+        </form>
+    </div>
+</div>
+<app-footer />

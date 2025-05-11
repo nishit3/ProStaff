@@ -1,0 +1,13 @@
+.custom-links {
+    font-family: 'Inter', sans-serif;
+    font-size: 18;
+}
+.custom-sub-links {
+    font-family: 'Inter', sans-serif;
+    font-size: 16;
+}
+footer {
+    background-color: #043873;
+    color: white;
+    padding: 60px 0;
+  }

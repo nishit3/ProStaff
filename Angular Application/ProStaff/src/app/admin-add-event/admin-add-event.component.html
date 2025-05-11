@@ -1,0 +1,31 @@
+<div class="custom-dialog">
+  <h4 class="text-lg-start mb-3 font-weight-bold title-label">
+    {{ index !== null ? 'Edit Event' : 'Add Event' }}
+  </h4>
+
+  <!-- Date Input -->
+  <div class="mb-3">
+    <label class="form-label custom-labels">Date</label>
+    <input type="date" class="form-control custom-labels" [(ngModel)]="eventDateISO" (ngModelChange)="onDateChange($event)" placeholder="Select date">
+  </div>
+
+  <!-- Event Title -->
+  <div class="mb-3">
+    <label class="form-label custom-labels">Event Title</label>
+    <input type="text" class="form-control custom-labels" [(ngModel)]="eventName" placeholder="Enter event title">
+  </div>
+
+  <!-- Event Description -->
+  <div class="mb-3">
+    <label class="form-label custom-labels">Description</label>
+    <textarea class="form-control custom-labels" [(ngModel)]="eventDescription" placeholder="Enter event details" rows="5"></textarea>
+  </div>
+
+  <!-- Button Row -->
+  <div class="button-row">
+    <button class="add-btn custom-labels" (click)="submitEvent()">
+      {{ index !== null ? 'Update' : 'Add' }}
+    </button>
+    <button class="cancel-btn custom-labels" (click)="closeDialog()">Cancel</button>
+  </div>
+</div>

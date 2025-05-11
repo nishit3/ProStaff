@@ -1,0 +1,157 @@
+.sidebar {
+  height: 100vh; /* Full viewport height */
+  width: 250px;
+  background-color: #121C3E;
+  color: white;
+  padding: 15px; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0; /* Always visible */
+  top: 0;
+  /* transition: left 0.3s ease-in-out; */
+  z-index: 1000;
+  overflow-y: auto; /* Enables scrolling if content exceeds height */
+}
+
+/* Sidebar Open/Close */
+.sidebar-open {
+  left: 0; /* Slide in */
+}
+
+.sidebar-closed {
+  left: -250px; /* Slide out */
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Reduced spacing */
+  justify-content: left;
+}
+
+.profile-image {
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 60px; /* Reduced size */
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white; /* White ring around the image */
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4); /* Softer glow */
+}
+
+.profile-info {
+  margin-left: 12px; /* Reduced margin */
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h5 {
+  margin: 0;
+  font-size: 16px; /* Slightly smaller */
+}
+.sidebar-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* prevent scrolling */
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #BBBBBB;
+}
+
+/* Navigation Links */
+.nav {
+  flex-grow: 1; /* Makes sure nav expands dynamically */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduced gap */
+  padding-bottom: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 15px; /* Slightly smaller */
+  padding: 8px; /* Reduced padding */
+  border-radius: 5px;
+  text-decoration: none;
+  /* transition: background 0.3s, color 0.3s; */
+}
+
+.nav-icon {
+  width: 22px; /* Reduced size */
+  height: 22px;
+  /* transition: filter 0.3s; */
+}
+
+.nav-text {
+  margin: 0;
+  padding-left: 8px; /* Reduced padding */
+  font-size: 15px;
+}
+
+.nav-link:hover {
+  background-color: #ADD0FA;
+  color: black;
+}
+
+.desg-icon {
+  width: 24px; /* Reduced size */
+  height: 24px;
+  filter: invert(1);
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 15px; /* Slightly smaller */
+  padding: 8px; /* Reduced padding */
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.desg-icon:hover {
+  background-color: #ADD0FA;
+  color: black;
+  filter:invert(0);
+}
+
+.nav-link:hover .nav-icon {
+  filter: invert(1);
+}
+
+/* Logout Button */
+.logout-btn {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  color: #121C3E;
+  background-color: #f3d271;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px; /* Slightly smaller */
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: auto; /* Ensures button stays at the bottom */
+}
+
+.logout-btn:hover {
+  background-color: #FFC107;
+}
+
+
+.nav-link {
+  cursor: default; /* normal pointer by default */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  cursor: pointer; /* hand icon on hover */
+}

@@ -1,0 +1,58 @@
+<app-admin-sidebar />
+<app-admin-navbar />
+<div class="page-body">
+    <div class="search-container">
+        <div class="search-box">
+            <button class="search-btn">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="search-input">
+        </div>
+    </div>
+    <div class="main-container">
+
+        <div class="notification-section">
+            <div class="notif-header">
+                <h2 class="notif-title">Notifications</h2>
+
+                <div class="notif-buttons">
+                    <button class="add-notification-btn" (click)="openFilterDialog()">
+                        Filter
+                    </button>
+                    <button class="add-notification-btn" (click)="openLeaveRequestDialog()">
+                        Add Notification
+                    </button>
+                </div>
+            </div>
+            <div class="table-container" [class.no-scroll]="filteredNotifications.length < 5">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">S No</th>
+                            <th style="width: 20%;">Notification Message</th>
+                            <th style="width: 15%;">Notify Date</th>
+                            <th style="width: 15%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let notif of filteredNotifications; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ notif.message }}</td>
+                            <td>{{ notif.date }}</td>
+                            <td>
+                                <button class="delete-btn" (click)="deleteNotification(i)">Delete</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="filteredNotifications.length === 0">
+
+                            <td colspan="4"
+                                style="height: 200px; text-align: center; vertical-align: middle; color: red; font-size: 18px;font-weight: bold;">
+                                No Notification found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- END NOTIFICATION CONTENT -->
+    </div>
+</div>
+<app-footer />

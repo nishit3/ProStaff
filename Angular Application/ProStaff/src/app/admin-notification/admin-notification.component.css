@@ -1,0 +1,248 @@
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Title stays top, table stretches */
+  padding: 20px;
+}
+
+/* Notification Section */
+.notification-section {
+  padding: 20px;
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* Ensures responsiveness */
+  gap: 10px;
+  /* Adds space between elements */
+  margin-bottom: 20px;
+}
+
+.notif-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.notif-buttons {
+  display: flex;
+  gap: 10px;
+  /* Adjust space between buttons */
+}
+
+/* Department Dropdown */
+/* Department Filter with checkboxes */
+.department-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.department-filter label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.department-filter input {
+  margin-right: 5px;
+}
+
+
+
+/* Add Notification Button */
+.add-notification-btn {
+  background-color: #f3d271;
+  color: #121C3E;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-notification-btn:hover {
+  background-color: #ffc107;
+}
+
+/* Table Styling */
+.table-container {
+  flex: 1;
+  background: white;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+/* Ensures table alignment */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* Ensures column width is respected */
+}
+
+/* Sticky Table Header */
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #E3EDF9;
+  z-index: 10;
+  height: 50px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  background-color: #E3EDF9;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Table Body */
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  vertical-align: middle;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #F5F9FF;
+}
+
+/* No Records Row */
+.no-record {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+  height: 100px;
+  /* Increased height */
+  line-height: 100px;
+  font-size: 18px;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ADD0FA;
+  padding: 20px;
+  margin-top: 60px;
+  margin-left: 250px;
+}
+
+.search-box {
+  display: flex;
+  width: 50%;
+  max-width: 500px;
+}
+
+.search-btn {
+  background: #253D90;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #1a2f70;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .notif-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .table-container {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .no-record {
+    height: 150px;
+    line-height: 150px;
+  }
+}
+
+.page-body {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  /* adjust if navbar/footer heights differ */
+  margin-left: 250px;
+  /* sidebar width */
+  background-color: #ADD0FA;
+}

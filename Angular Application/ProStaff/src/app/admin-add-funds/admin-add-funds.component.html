@@ -1,0 +1,29 @@
+<div class="custom-dialog">
+  <h4 class="text-lg-start mb-3 font-weight-bold title-label">
+    Add Funds
+  </h4>
+
+  <div class="mb-3">
+    <label class="form-label custom-labels">Funds</label>
+    <input
+      type="number"
+      name="funds"
+      [(ngModel)]="funds"
+      required
+      #fundsModel="ngModel"
+      class="form-control custom-labels"
+      placeholder="Enter Funds"
+    />
+    <div class="error-msg" *ngIf="fundsModel.invalid && fundsModel.touched">
+      Please enter a valid amount!
+    </div>
+  </div>
+
+  <!-- Button Row -->
+  <div class="button-row">
+    <button class="add-btn custom-labels" (click)="submitFunds()">
+      Add
+    </button>
+    <button class="cancel-btn custom-labels" (click)="closeDialog()">Cancel</button>
+  </div>
+</div>

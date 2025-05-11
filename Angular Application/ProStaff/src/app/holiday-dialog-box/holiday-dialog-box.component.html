@@ -1,0 +1,27 @@
+<div class="custom-dialog">
+    <h4 class="text-white text-center mb-3">
+      {{ isHoliday ? 'Delete Holiday' : 'Add Holiday' }}
+    </h4>
+  
+    <!-- Date Input -->
+    <div class="mb-3">
+      <label class="form-label text-white">Date</label>
+      <input type="text" class="form-control rounded-input" [(ngModel)]="holidayDate" readonly>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="d-flex gap-2">
+      <!-- Cancel Button -->
+      <button class="btn w-50" style="background-color: #f44336; color: white;" (click)="closeDialog(false)">
+        CANCEL
+      </button>
+  
+      <!-- Submit/Delete Button -->
+      <button class="btn w-50"
+        [ngStyle]="isHoliday ? {'background-color': '#f44336', 'color': 'white'} : {'background-color': '#FFE492', 'font-weight': 'bold'}"
+        (click)="handleAction()">
+        {{ isHoliday ? 'DELETE' : 'ADD' }}
+      </button>
+    </div>
+  </div>
+  

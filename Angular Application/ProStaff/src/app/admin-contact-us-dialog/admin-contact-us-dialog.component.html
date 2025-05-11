@@ -1,0 +1,40 @@
+<div class="custom-dialog">
+  <h4 class="text-white text-center mb-3">Contact Information</h4>
+
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="form-label text-white">Email</label>
+    <input type="email" class="form-control rounded-input" [(ngModel)]="helpDetails.email" [readonly]="!isEditing" email>
+  </div>
+
+  <!-- Contact Number with Country Code -->
+  <div class="mb-3">
+    <label class="form-label text-white">Contact Number</label>
+    <div class="d-flex">
+      <!-- Country Code Dropdown -->
+      <select class="form-select me-2"
+              [(ngModel)]="selectedCountryCode"
+              [disabled]="!isEditing"
+              [ngClass]="{'no-dropdown': !isEditing}"
+              [ngStyle]="{'width': isEditing ? '90px' : '70px'}">
+        <option *ngFor="let country of countryCodes" [value]="country">
+          {{ country }}
+        </option>
+      </select>
+      <!-- Contact Number Input -->
+      <input type="text" class="form-control rounded-input" [(ngModel)]="helpDetails.phoneNumber" [readonly]="!isEditing" placeholder="Enter phone number">
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary me-2" *ngIf="!isEditing" (click)="toggleEdit()">Edit</button>
+    <button class="btn btn-success me-2" *ngIf="isEditing" (click)="saveChanges()">Save</button>
+    <button class="btn btn-secondary" (click)="dialogRef.close()">Close</button>
+  </div>
+
+  <!-- Button -->
+  <!-- <button class="btn w-100" style="background-color: #FFE492; font-weight: bold;" (click)="toggleEdit()">
+    {{ isEditing ? 'SUBMIT' : 'EDIT' }}
+  </button> -->
+
+</div>

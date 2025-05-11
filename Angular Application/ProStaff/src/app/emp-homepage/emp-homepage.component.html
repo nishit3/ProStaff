@@ -1,0 +1,160 @@
+
+<app-emp-navbar />
+<div *ngIf="showAlert" class="global-alert alert alert-primary" role="alert">
+  The Reset Password link has been sent to your email.
+</div>
+<!-- Banner Section -->
+<section>
+  <div class="homepage-banner">
+    <div class="container">
+      <div class="row align-items-center justify-content-between flex-column-reverse flex-md-row">
+        <!-- Left Side: Text Content -->
+        <div class="col-12 col-md-6 text-white mb-4 mb-md-0" style="padding-top: 60px;">
+          <h1 class="fw-bold mb-3" style="font-size: 42px;">Welcome to ProStaff</h1>
+          <h2 class="fw-bold mb-3" style="font-size: 30px;">Manage Better!</h2>
+          <p style="font-size: 16px; max-width: 500px; font-family: 'Inter', sans-serif;">
+            ProStaff is your trusted platform to manage, collaborate, and streamline your professional workflows.
+            Experience productivity like never before.
+          </p>
+        </div>
+
+        <!-- Right Side: Banner Image -->
+        <div class="col-12 col-md-5 text-center">
+          <img src="images/homeImg.png" alt="ProStaff Banner" class="img-fluid" style="max-height: 300px;" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Left Side: All Cards except Calendar -->
+      <div class="col-md-6">
+        <!-- Feature Card -->
+        <div class="card feature-card px-3 py-4 rounded-4 border-0">
+          <div class="row text-center">
+            <button class="col-12 col-sm-4 mb-3 mb-md-0" (click)="openLeaveRequestDialog()" style="border: 0px;background-color: transparent;">
+              <div class="feature-icon" style="background-color: #7DAFE9;">
+                <img src="images/reqLeave.png" alt="Request Leave" class="img-fluid" />
+              </div>
+              <h6 class="fw-semibold" style="font-size: 14px;">Request Leave</h6>
+            </button>
+            <button class="col-12 col-sm-4 mb-3 mb-md-0" (click)="openResetPassDialog()" style="border: 0px;background-color: transparent;">
+              <div class="feature-icon" style="background-color: #D5BDEB;">
+                <img src="images/resetPass.png" alt="Reset Password" class="img-fluid" />
+              </div>
+              <h6 class="fw-semibold" style="font-size: 14px;">Reset Password</h6>
+            </button>
+            <button class="col-12 col-sm-4" (click)="openFAQ()" style="border: 0px;background-color: transparent;">
+              <div class="feature-icon" style="background-color: #F8A9A9;">
+                <img src="images/adminDashboard/faq.png" alt="FAQ" class="img-fluid" style="filter: invert(1);"/>
+              </div>
+              <h6 class="fw-bold" style="font-size: 14px;">FAQ</h6>
+            </button>
+          </div>
+        </div>
+
+        <!-- Performance Ratings Card -->
+        <div class="card rating-card mt-4 py-4 rounded-4 border-0">
+          <div class="px-2">
+              <h4 class="fw-bold mb-3 text-start text-md-start" style="font-size: 18px;">Performance Ratings</h4>
+          </div>
+          <div class="text-center mb-4 mt-2">
+              <h5 class="fw-bold" style="font-size: 16px;">Average Rating</h5>
+              <div class="star-rating d-flex justify-content-center">
+                  <i *ngFor="let star of getStars(averageRating)" class="fa-solid fa-star"></i>
+                  <i *ngIf="hasHalfStar(averageRating)" class="fa-solid fa-star-half-stroke"></i>
+              </div>
+          </div>
+          <div class="rating-list mt-2 ">
+            <!-- check tommorow  -->
+              <div class="row ml-4"> 
+                  <div class="col-sm-6" *ngFor="let item of performanceList; let i = index">
+                      <div class="rating-item custom-rating-item" > 
+                          <h5 class="rating-title text-start" style="font-size: 14px;">{{ item.title }}</h5>
+                          <div class="star-rating text-start d-flex">
+                              <i *ngFor="let star of getStars(item.rating)" class="fa-solid fa-star"></i>
+                              <i *ngIf="hasHalfStar(item.rating)" class="fa-solid fa-star-half-stroke"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+        <!-- Upcoming Events Card -->
+        <div class="card events-card mt-4 px-3 py-4 rounded-4 border-0">
+          <h4 class="fw-bold mb-3 text-start">Upcoming Events</h4>
+          <div class="events-list">
+            <div class="event-card" *ngFor="let event of upcomingEvents">
+              <p class="event-date">{{ event.date }}</p>
+              <h5 class="event-title">{{ event.name}}</h5>
+              <h6 class="event-description">{{ event.description }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Right Side: Calendar with Left Margin -->
+      <div class="col-md-5 ms-md-5 ms-4">
+        <div class="d-flex justify-content-center mb-3 gap-3">
+          <div class="d-flex align-items-center">
+            <span class="legend-box bg-danger"></span>
+            <span class="legend-text">Absent</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="legend-box bg-success"></span>
+            <span class="legend-text">Present</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="legend-box bg-warning"></span>
+            <span class="legend-text">Holiday</span>
+          </div>
+        </div>
+        <!--Calendar  -->
+        <mat-card class="demo-inline-calendar-card" *ngIf="attendanceRecordLoaded">
+          <mat-calendar [(selected)]="selected"
+          [dateClass]="dateClass"></mat-calendar>
+        </mat-card>
+
+        <div class="d-flex justify-content-center mt-4 gap-5">
+          <button class="btn check-in-btn px-4" style="width: 40%;" (click)="onCheckIn()">Check In</button>
+          <button class="btn check-out-btn px-4" style="width: 40%;" (click)="onCheckOut()">Check Out</button>
+        </div>
+
+
+        <!-- Leave Request Status Card -->
+        <div class="card leave-status-card mt-4 mb-5 px-3 py-4 rounded-4 border-0">
+          <h4 class="fw-bold mb-3 text-start">Leave Request Status</h4>
+
+          <!-- Scrollable container for leave requests -->
+          <div class="leave-status-list" style="max-height: 240px; overflow-y: auto;">
+            <div class="leave-card d-flex mb-3 p-3 rounded-3"
+              *ngFor="let leave of leaveRequests.slice(0, leaveRequests.length)"
+              [ngStyle]="{'border-left': '5px solid ' + getStatusColor(leave.status) }">
+              <!-- Left Side: Status & Details (Flexible width) -->
+              <div class="leave-details">
+                <h5 class="fw-bold mb-1" [ngStyle]="{'color': getStatusColor(leave.status)}">
+                  {{ leave.status }}
+                </h5>
+                <p class="mb-1 text-muted">{{ leave.reason }}</p>
+                <p class="mb-0 fw-semibold text-primary">{{ leave.type }}</p>
+              </div>
+
+              <!-- Right Side: Leave Date (Fixed width, does not shrink) -->
+              <div class="leave-date">
+                <h6 class="fw-semibold">{{ leave.leaveDate | date:'dd-MM-yyyy' }}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer />

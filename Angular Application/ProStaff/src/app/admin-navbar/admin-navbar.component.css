@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.navbar-top-section {
+    position: fixed;
+    width: calc(100% - 250px); /* Adjust width to exclude sidebar width */
+    top: 0;
+    left: 250px; /* Start from where the sidebar ends */
+    background-color: #ADD0FA;
+    transition: margin-left 0.3s ease-in-out;
+    z-index: 1000; /* Ensure navbar is above sidebar */
+}
+
+/* When sidebar opens, shift the navbar */
+.shift-right {
+    margin-left: 250px;
+}
+
+.top-navbar {
+    background-color: #002F6C;
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.title-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+.profile-section {
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+    gap: 8px; /* Space between image and text */
+    color: white; /* Make text color consistent */
+}
+
+.custom-links {
+    /* white-space: nowrap; */
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}

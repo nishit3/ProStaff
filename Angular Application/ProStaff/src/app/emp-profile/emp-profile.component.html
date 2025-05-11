@@ -1,0 +1,104 @@
+<app-emp-navbar />
+
+<section class="bg-white">
+  <!-- Banner Image -->
+  <img src="images/profileBanner.png" alt="Employee Profile" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+
+  <div class="container" style="margin-top: -50px;">
+    <div class="row align-items-end">
+      <!-- Profile Image (Left on Desktop, Centered on Mobile) -->
+      <div class="col-12 col-lg-auto d-flex justify-content-center justify-content-lg-start text-center text-lg-start">
+        <div class="position-relative">
+          <img *ngIf="empImageSrc" [src]="empImageSrc" alt="Profile Picture" class="rounded-circle border shadow"
+            style="width: 150px; height: 150px; object-fit: cover;">
+          <!-- Edit Icon -->
+          <!-- <span class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow position-absolute"
+            style="width: 32px; height: 32px; bottom: 5px; right: 5px; cursor: pointer;">
+            <i class="fa fa-pencil-alt"></i>
+          </span> -->
+        </div>
+      </div>
+  
+      <!-- Employee Name & Designation -->
+      <div class="col-12 col-lg text-center text-lg-start mt-3 mt-lg-0">
+        <h4 class="mb-1 fw-bold">{{ fullName }}</h4> <!-- Employee Name -->
+        <p class="text-muted mb-0">{{ designation }}</p> <!-- Employee Designation -->
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <!-- Employee Details Section -->
+  <div class="container mt-5">
+    <h2 class="mb-3">About</h2>
+
+    <div class="row">
+      <!-- Employee Details (Left Side) -->
+      <div class="col-lg-8">
+        <div class="row gy-4">
+          <div class="col-md-6" *ngFor="let detail of employeeDetails">
+            <div class="d-flex align-items-center p-3 border rounded shadow-sm bg-light">
+              <!-- Icon -->
+              <div class="d-flex align-items-center justify-content-center me-3 text-primary">
+                <i [class]="detail.icon" [ngStyle]="{'color': '#4F52BD'}"></i>
+              </div>
+
+              <!-- Details -->
+              <div>
+                <h6 class="mb-1 text-muted">{{ detail.title }}</h6>
+
+                <!-- If Value is an Array, Display as Badges -->
+                <div *ngIf="isArray(detail.value); else singleValue">
+                  <div class="d-flex flex-wrap">
+                    <span *ngFor="let item of flattenArray(detail.value)" class="badge rounded-pill text-white me-2 mb-2 px-3 shadow-sm"
+                      style="font-size: 10px; background-color: #676bcc;">
+                      {{ item }}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Single Value Display -->
+                <ng-template #singleValue>
+                  <p class="mb-0 fw-bold">{{ detail.value }}</p>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar Component (Right Side) -->
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="p-3">
+          <h2 class="pb-1">Leave Request</h2>
+          <mat-card class="demo-inline-calendar-card w-100" *ngIf="leaveRequestsLoaded">
+            <mat-calendar [selected]="selectedDate"
+            (selectedChange)="onDateSelected($event!)"
+              [dateClass]="dateClass">
+            </mat-calendar>
+          </mat-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bank Details Section -->
+  <div class="container mt-5 mb-4">
+    <hr class="border-secondary opacity-50" style="height: 2px;">
+
+    <h2 class="mb-3">Bank Details</h2>
+
+    <div class="gy-3">
+      <div class="col-md-6" *ngFor="let bank of bankDetails">
+        <div class="d-flex align-items-center p-3 border rounded shadow-sm bg-light">
+          <h6 class="me-3" style="min-width: 150px;color: #4F52BD;">{{ bank.title }}</h6>
+          <p class="fw-bold mb-0">{{ bank.value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />

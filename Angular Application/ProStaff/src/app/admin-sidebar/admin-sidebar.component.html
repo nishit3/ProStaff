@@ -1,0 +1,73 @@
+<nav class="sidebar">
+    <div class="sidebar-content">
+        <!-- Profile Section -->
+        <div class="profile">
+            <div class="profile-image">
+                <img src="images/admin.png" alt="Profile" class="profile-img">
+            </div>
+            <div class="profile-info">
+                <h5 #fullname>{{fullName}}</h5>
+                <p>Admin</p>
+            </div>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="nav">
+            <a class="nav-link" routerLink="/adminHomepage">
+                <img class="nav-icon" src="images/adminDashboard/dashboard.png" alt="dashboard-icon">
+                <p class="nav-text">Dashboard</p>
+            </a>
+            <a class="nav-link" routerLink="/adminEmpManagement">
+                <img class="nav-icon" src="images/adminDashboard/employee.png" alt="employee-icon">
+                <p class="nav-text">Employee Management</p>
+            </a>
+            <a class="nav-link" routerLink="/adminLeaveManagement">
+                <img class="nav-icon" src="images/adminDashboard/leave-management.png" alt="leave-management-icon">
+                <p class="nav-text">Leave Management</p>
+            </a>
+            <a class="nav-link" routerLink="/adminAddEmployee">
+                <img class="nav-icon" src="images/adminDashboard/add-employee.png" alt="add-employee-icon">
+                <p class="nav-text">Add Employee</p>
+            </a>
+            <a class="nav-link" routerLink="/adminNotifications">
+                <img class="nav-icon" src="images/adminDashboard/notification.png" alt="notifications-icon">
+                <p class="nav-text">Notifications</p>
+            </a>
+            <a class="nav-link" routerLink="/adminDepartment">
+                <img class="nav-icon" src="images/adminDashboard/departments.png" alt="departments-icon">
+                <p class="nav-text">Departments</p>
+            </a>
+            <a class="nav-link" routerLink="/adminTeams">
+                <img class="nav-icon" src="images/adminDashboard/teams.png" alt="teams-icon">
+                <p class="nav-text">Teams</p>
+            </a>
+            <a class="nav-link" routerLink="/adminDesignation">
+                <img class="nav-icon" src="images/designation.png" alt="designation-icon">
+                <p class="nav-text">Designation</p>
+            </a>
+            <a class="nav-link" routerLink="/adminUpcomingEvents">
+                <img class="nav-icon" src="images/adminDashboard/upcomming-events.png" alt="upcoming-events-icon">
+                <p class="nav-text">Upcoming Events</p>
+            </a>
+            <a class="nav-link" routerLink="/adminFaq">
+                <img class="nav-icon" src="images/adminDashboard/faq.png" alt="faq-icon">
+                <p class="nav-text">FAQ</p>
+            </a>
+            <a class="nav-link" (click)="openContactUs()">
+                <img class="nav-icon" src="images/adminDashboard/contact-us.png" alt="contact-us-icon" style="cursor:pointer;">
+                <p class="nav-text">Contact Us</p>
+            </a>
+            <a class="nav-link" (click)="openHoliday()" [hidden]="isHidden">
+                <img class="nav-icon" src="images/holiday.png" alt="holiday-icon" style="cursor:pointer;">
+                <p class="nav-text">Holiday Management</p>
+            </a>
+            <a class="nav-link" routerLink="/adminSalary" >
+                <img class="nav-icon" src="images/fund.png" alt="faq-icon">
+                <p class="nav-text">Salary</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Logout Button at the bottom -->
+    <button class="logout-btn" (click)="logOutClicked()">Logout</button>
+</nav>

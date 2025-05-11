@@ -1,0 +1,27 @@
+<div class="dialog-container">
+    <!-- Title -->
+    <div class="dialog-header">
+        <h2>Select Departments</h2>
+    </div>
+
+    <!-- Department Selection List -->
+    <div class="dept-list">
+        <label class="select-all">
+            <input type="checkbox" (change)="toggleSelectAll()" [checked]="isAllSelected()" />
+            Select All
+        </label>
+
+        <!-- Scrollable List for Departments -->
+        <div class="scroll-container">
+            <label *ngFor="let dept of departmentsList" class="dept-item">
+                <input type="checkbox" [(ngModel)]="dept.selected" />
+                {{ dept.name }}
+            </label>
+        </div>
+    </div>
+
+    <!-- Submit & Cancel Buttons -->
+    <div class="submit-button">
+        <button (click)="submitSelection()">SUBMIT</button>
+      </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="navbar-top-section">
+  <nav class="navbar navbar-expand-lg top-navbar">
+    <div class="container-fluid d-flex align-items-center">
+      <!-- Logo and Project Name -->
+      <a class="navbar-brand d-flex align-items-center" routerLink="/adminHomepage">
+        <img src="images/appIcon.png" alt="Logo" width="37" height="29" class="me-2">
+        <span class="title-text">ProStaff</span>
+      </a>
+
+      <!-- Right Side: Add Admin Button + Profile -->
+      <div class="d-flex align-items-center ms-auto">
+        <button type="submit" class="btn custom-links me-3" (click)="openAddAdminDialog()"
+          style="padding-left: 20px; padding-right: 20px; background-color: #FFE492; color: #043873; border: none;">
+          Add Admin
+        </button>
+
+        <!-- Profile Section -->
+        <div class="nav-item d-flex align-items-center profile-section">
+          <img [src]="organizationLogo" alt="Profile" width="60" height="30" class="me-2">
+          <span class="custom-links">{{ organizationName }}</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

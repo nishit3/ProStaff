@@ -1,0 +1,76 @@
+<app-admin-sidebar />
+<app-admin-navbar />
+<div class="page-body">
+    <div class="search-container">
+        <div class="search-box">
+            <button class="search-btn">Search</button>
+            <!-- Search -->
+            <input type="text" [(ngModel)]="searchTerm" (input)="filterLogs()" placeholder="Search..."
+                class="search-input">
+        </div>
+    </div>
+
+    <!-- DEPARTMENTS CONTENT -->
+    <div class="main-container">
+        <div class="inline-padding">
+            <!-- Title & Button Aligned in Same Row -->
+            <!-- Title & Buttons Aligned in Same Row -->
+            <div class="funds-container mb-4">
+                <div class="funds-card">
+                    <div class="funds-card-content">
+                        <h3 class="funds-title">Current Available Funds</h3>
+                        <p class="funds-amount">₹{{ funds }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="departments-section d-flex justify-content-between align-items-center">
+
+                <h2 class="departments-title m-0">Salary Logs</h2>
+                <div class="d-flex gap-4">
+                    <button class="add-department-btn" (click)="openRolloutDialog()">
+                        Rollout
+                    </button>
+                    <button class="add-department-btn" (click)="openAddFundsDialog()">
+                        Add Funds
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="table-container" [class.no-scroll]="filteredSalaryLogs.length < 5">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">S No</th>
+                            <th style="width: 20%;">Employee Email</th>
+                            <th style="width: 35%;">Message</th>
+                            <th style="width: 12%;">Date</th>
+                            <th style="width: 15%;">Time</th>
+                            <!-- <th style="width: 13%;">Delete</th> -->
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let log of filteredSalaryLogs; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ log.employeeEmail }}</td>
+                            <td>{{ log.message }}</td>
+                            <td>{{ log.date | date:'shortDate' }}</td>
+                            <td>{{ log.time }}</td>
+                        </tr>
+                        <tr *ngIf="filteredSalaryLogs.length === 0">
+                            <td colspan="5"
+                                style="height: 200px; text-align: center; vertical-align: middle; color: red; font-size: 18px;font-weight: bold;">
+                              No Logs found
+                            </td>
+                          </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END DEPARTMENTS CONTENT -->
+
+<app-footer />

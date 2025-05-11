@@ -1,0 +1,54 @@
+<app-admin-sidebar />
+<app-admin-navbar />
+<app-admin-navbar />
+<div class="page-body">
+    <div class="search-container">
+        <div class="search-box">
+            <button class="search-btn">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="search-input">
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="teams-section">
+            <div class="teams-header">
+                <h2 class="teams-title">Teams</h2>
+                <button class="add-teams-btn" (click)="addTeams()">Add Teams</button>
+            </div>
+        </div>
+        <div class="table-container" [class.no-scroll]="filteredTeams.length < 5">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">S No</th>
+                        <th style="width: 10%;">Teams</th>
+                        <th style="width: 35%;">Description</th>
+                        <th style="width: 12%;">Total Employees</th>
+                        <th style="width: 15%;">Details</th>
+                        <th style="width: 10%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let team of filteredTeams; index as i">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ team.name }}</td>
+                        <td>{{ team.description }}</td>
+                        <td>{{ team.employeeCount }}</td>
+                        <td>
+                            <button class="details-btn" (click)="viewEmployees(team.id)">View Employees</button>
+                        </td>
+
+                        <td>
+                            <button class="delete-btn" (click)="deleteTeam(team.id,i)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="filteredTeams.length === 0">
+                        <td colspan="6"
+                            style="height: 200px; text-align: center; vertical-align: middle; color: red; font-size: 18px;font-weight: bold;">
+                            No Team found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer />

@@ -1,0 +1,29 @@
+<div class="custom-dialog p-3" style="background-color: #043873; border-radius: 10px;">
+    <h4 class="text-white text-left mb-4">Grant Leave?</h4>
+  
+    <!-- Leave Type Summary -->
+    <div class="text-white mb-4">
+      <p><strong>Paid Leaves:</strong> {{ paidLeaveCount }}</p>
+      <p><strong>Unpaid Leaves:</strong> {{ unpaidLeaveCount }}</p>
+      <p><strong>Sick Leaves:</strong> {{ sickLeaveCount }}</p>
+    </div>
+  
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-between gap-3">
+      <button 
+        class="btn w-50" 
+        style="background-color: #FFE492; font-weight: bold; color: #043873;"
+        (click)="approveLeave()"
+      >
+        GRANT
+      </button>
+      <button 
+        class="btn w-50" 
+        style="background-color: #FF7F7F; font-weight: bold; color: white;"
+        (click)="closeDialog()"
+      >
+        CANCEL
+      </button>
+    </div>
+  </div>
+  

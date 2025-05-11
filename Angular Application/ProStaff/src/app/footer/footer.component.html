@@ -1,0 +1,75 @@
+<footer [ngStyle]="{ 'width': isAdminHomepage ? 'calc(100% - 250px)' : '100%', 'margin-left': isAdminHomepage ? '250px' : '0' }">
+    <div class="container" [ngStyle]="{ 'padding-left': isAdminHomepage ? '30px' : '0' }">
+        <div class="row align-items-start justify-content-between">
+
+            <!-- Left Section: App Icon, Name, and Description -->
+            <div class="col-12 col-md-3 mb-4">
+                <div class="d-flex align-items-center mb-2">
+                    <img src="images/appIcon.png" alt="App Icon" width="37" height="29" class="me-2">
+                    <h5 class="mb-0">ProStaff</h5>
+                </div>
+                <p style="font-size: 14px; max-width: 230px;" class="custom-sub-links">
+                    ProStaff is your one-stop solution for professional management tools that enhance productivity and collaboration.
+                </p>
+            </div>
+
+            <!-- Center Section: Product, Resources, Company Links -->
+            <div class="col-12 col-md-5 mb-4">
+                <div class="row">
+                    <div class="col-4">
+                        <h6 class="custom-links">Products</h6>
+                        <ul class="list-unstyled" style="font-size: 14px;">
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Product 1</a></li>
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Product 2</a></li>
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Product 3</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <h6 class="custom-links">Resources</h6>
+                        <ul class="list-unstyled" style="font-size: 14px;">
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Blog</a></li>
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Docs</a></li>
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <h6 class="custom-links">Company</h6>
+                        <ul class="list-unstyled" style="font-size: 14px;">
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">About</a></li>
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Careers</a></li>
+                            <li><a href="#" class="text-white text-decoration-none custom-sub-links">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section: Try it Today -->
+            <div class="col-12 col-md-4">
+                <h6 style="font-family: 'Inter', sans-serif; font-size: 25px; font-weight: bold;">Try it Today</h6>
+                <p class="custom-sub-links" style="font-size: 14px; max-width: 300px;">
+                    Experience the difference with ProStaff. Get started now and transform the way you work.
+                </p>
+                <button class="btn d-flex align-items-center"
+                    style="background-color: #4F9CF9; color: white; border: none; padding: 20px 20px; font-size: 16px;">
+                    <span class="me-2">Visit Our InstaPage</span>
+                    <span style="font-size: 20px;">➔</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Divider line after content -->
+        <div class="mt-4">
+            <hr style="border-top: 1px solid rgb(247, 245, 245); margin-top: 40px;">
+        </div>
+
+        <!-- Terms & Conditions Section -->
+        <div class="row mt-4">
+            <div class="col-12 d-flex flex-wrap align-items-center justify-content-start gap-3">
+              <a href="#" class="custom-sub-links text-white text-decoration-none" style="font-size: 13px;">Terms & Privacy</a>
+              <a href="#" class="custom-sub-links text-white text-decoration-none" style="font-size: 13px;">Security</a>
+              <a href="#" class="custom-sub-links text-white text-decoration-none" style="font-size: 13px;">Status</a>
+              <span style="font-size: 13px; color: rgba(255,255,255,0.6);">© 2025 ProStaff. All rights reserved.</span>
+            </div>
+        </div>
+    </div>
+</footer>

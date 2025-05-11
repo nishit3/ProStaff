@@ -1,0 +1,89 @@
+<div class="custom-dialog">
+    <!-- Header Row -->
+    <div class="d-flex align-items-center mb-3">
+      <!-- Left: Search -->
+      <div style="width: 33.33%;" class="d-flex justify-content-start px-2">
+        <input
+          type="text"
+          class="form-control"
+          style="max-width: 200px;"
+          placeholder="Search employee..."
+          [(ngModel)]="searchTerm"
+          (input)="filterEmployees()" />
+      </div>
+  
+      <!-- Center: Title -->
+      <div style="width: 33.33%;" class="text-center">
+        <h4 class="text-white m-0">Rollout</h4>
+      </div>
+  
+      <!-- Right: Select All -->
+      <div style="width: 33.33%;" class="d-flex justify-content-end px-2">
+        <div class="form-check">
+          <input
+            class="form-check-input large-checkbox"
+            type="checkbox"
+            [checked]="isAllSelected"
+            (change)="toggleSelectAll($event)"
+            id="selectAll" />
+          <label class="form-check-label text-white ms-1" for="selectAll">
+            Select All
+          </label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Table -->
+    <div class="table-container" [class.no-scroll]="filteredEmployees.length < 5">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 5%;">#</th>
+            <th style="width: 5%;">S No</th>
+            <th style="width: 20%;">Employee Name</th>
+            <th style="width: 35%;">Email</th>
+            <th style="width: 20%;">Department</th>
+            <th style="width: 15%;">Designation</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let emp of filteredEmployees; let i = index">
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input large-checkbox"
+                [checked]="isSelected(emp.email)"
+                (change)="toggleSelection(emp)" />
+            </td>
+            <td>{{ i + 1 }}</td>
+            <td>{{ emp.fullName }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.department || 'N/A' }}</td>
+            <td>
+             {{emp.designation}}
+            </td>
+          </tr>
+  
+          <tr *ngIf="filteredEmployees.length === 0">
+            <td colspan="6" class="text-center" style="color: red; font-weight: bold; height: 200px;">
+              No Employees Found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Submit Button -->
+    <!-- Submit & Rollout Buttons -->
+<div class="d-flex justify-content-center mt-3 gap-3">
+    <button
+      class="btn"
+      style="background-color: #FFE492; font-weight: bold; width: 30%;"
+      (click)="openSalaryRemDialog()">
+      SUBMIT
+    </button>
+  </div>
+  
+  </div>
+  

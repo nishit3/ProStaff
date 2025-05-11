@@ -1,0 +1,280 @@
+.homepage-banner {
+  background-color: #1b508d;
+  /* Use the same login background color here */
+  padding: 80px 0;
+  color: white;
+}
+
+.feature-card {
+  max-width: 700px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.feature-icon img {
+  height: 30px;
+}
+
+.rating-card {
+  max-width: 700px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s;
+  margin: auto;
+}
+
+.rating-list {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+}
+
+
+
+.rating-item {
+  width: 50%;
+  /* Two columns */
+  padding: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.rating-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.star-rating {
+  font-size: 20px;
+  color: #FFD700;
+  /* Gold color */
+  letter-spacing: 3px;
+  /* display: flex; */
+  gap: 5px;
+}
+
+.events-card {
+  max-width: 700px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.events-list {
+  max-height: 300px;
+  /* Controls the height */
+  overflow-y: auto;
+  /* Enables scrolling when there are more than 2 events */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Space between event cards */
+  padding-right: 10px;
+  /* Prevents scrollbar overlay */
+}
+
+.event-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.event-date {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.event-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.leave-status-list {
+  max-height: 240px;
+  /* Shows 3 requests initially, then scroll */
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.leave-card {
+  
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Keeps all content aligned */
+  min-height: 70px;
+  gap: 10px;
+  /* Adds spacing between text and date */
+}
+
+.leave-details {
+  flex: 1;
+  /* Takes available space */
+  min-width: 0;
+  /* Prevents overflowing */
+  word-wrap: break-word;
+  /* Ensures text wraps properly */
+}
+
+.leave-date {
+  flex-shrink: 0;
+  /* Prevents shrinking */
+  min-width: 110px;
+  /* Ensures consistent width */
+  text-align: center;
+}
+
+.leave-status-card {
+background-color: #ffffff;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+}
+
+/* Check-In Button (Green) */
+.check-in-btn {
+  background-color: #28a745;
+  /* Green */
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Check-Out Button (Red) */
+.check-out-btn {
+  background-color: #dc3545;
+  /* Red */
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Add hover effect */
+.check-in-btn:hover {
+  background-color: #218838;
+}
+
+.check-out-btn:hover {
+  background-color: #c82333;
+}
+
+.legend-box {
+width: 15px;
+height: 15px;
+border-radius: 3px;
+display: inline-block;
+margin-right: 5px;
+}
+
+.legend-text {
+font-size: 14px;
+font-weight: 500;
+color: #333;
+}
+
+.custom-rating-item {
+  margin-right: 10px; /* Adjust the right margin for spacing */
+  margin-left: 10px; /* Adjust the left margin for spacing */
+  /* or */
+  /* padding: 0 5px; Adjust padding for spacing */
+}
+
+/* Adjust the margin for the row to reduce the overall gap */
+.row {
+  margin-left: -5px; /* Adjust as needed */
+  margin-right: -5px; /* Adjust as needed */
+}
+
+/* Adjust the column padding to reduce the overall gap */
+.col-sm-6{
+  padding-left: 5px; /* Adjust as needed */
+  padding-right: 5px; /* Adjust as needed */
+}
+::ng-deep .mat-calendar-body-selected {
+  background-color: transparent !important; 
+  color: black !important;
+  border-radius: 50%;
+}
+
+/* Present (Green Border Circle, No Fill) */
+::ng-deep .present-date .mat-calendar-body-cell-content {
+  border: 2px solid green !important;
+  background-color: transparent !important;
+  color: black !important;
+  border-radius: 50%;
+}
+
+/* Absent (Red Circle with Light Red Fill) */
+::ng-deep .absent-date .mat-calendar-body-cell-content {
+  border: 2px solid red !important;
+  background-color: rgba(255, 0, 0, 0.2) !important;
+  color: black !important;
+  border-radius: 50%;
+}
+
+/* Holidays (Only Border Yellow, No Fill) */
+::ng-deep .holiday-date .mat-calendar-body-cell-content {
+  border: 2px solid #FFC107 !important;
+  background-color: transparent !important;
+  color: black !important;
+  border-radius: 50%;
+}
+.global-alert {
+  position: fixed;
+  top: 80px; /* Adjusted to appear below the navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 400px;
+  text-align: center;
+  /* background-color: #007bff; */
+  color:#1b508d;
+  padding: 10px 20px;
+  border-radius: 5px;
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
+  opacity: 1;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hide the alert after some time */
+.global-alert.hide {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+.custom-dialog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a slight overlay effect */
+  }
+  
+  .custom-dialog {
+    background-color: #043873;
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .rounded-input {
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  /* Ensures text area doesn't resize unexpectedly */
+  textarea.rounded-input {
+    resize: none;
+  }
+  
+  /* Dropdown inside input field */
+  .input-group {
+    position: relative;
+  }
+  
+  .dropdown-icon {
+    background-color: white;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-icon i {
+    color: #666;
+  }
+  .table-container {
+    background: white;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* overflow-x: auto; */
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.no-scroll {
+    overflow-y: hidden;
+  }
+
+/* Ensures table alignment */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width is respected */
+}
+
+/* Sticky Table Header */
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #E3EDF9;
+    z-index: 10;
+    height: 50px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #E3EDF9;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    word-wrap: break-word;  /* Allows breaking long words */
+    white-space: normal;
+}
+
+/* Table Body */
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle; /* Aligns content to middle */
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;  /* Allows breaking long words */
+    white-space: normal;
+  
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+    background-color: #F5F9FF;
+}
+
+/* No Records */
+.no-record {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}

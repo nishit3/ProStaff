@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.title-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.custom-bg {
+    background-color: #043873;
+}
+
+.custom-links {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Remove default focus outline on toggler */
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+/* Invert icons for visibility */
+.nav-icon {
+    filter: invert(1);
+}
+
+/* Notification dropdown */
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 350px; /* Adjust width for better responsiveness */
+    max-height: 450px; /* Reduce height for smaller screens */
+    overflow-y: auto;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 0;
+    display: none;
+}
+
+.notification-dropdown.show {
+    display: block;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .navbar-collapse {
+        background: #043873;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .nav-item {
+        padding: 10px 0;
+    }
+
+    .nav-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .notification-dropdown {
+        width: 100%;
+        right: 0;
+    }
+
+    .title-text {
+        font-size: 18px;
+    }
+
+    .custom-links {
+        font-size: 14px;
+    }
+
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}

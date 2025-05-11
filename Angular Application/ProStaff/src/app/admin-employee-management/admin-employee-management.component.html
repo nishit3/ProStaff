@@ -1,0 +1,59 @@
+<app-admin-sidebar></app-admin-sidebar>
+<app-admin-navbar></app-admin-navbar>
+<div class="page-body">
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <button class="search-btn">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="search-input">
+        </div>
+    </div>
+
+    <!-- Employee Management Section -->
+    <div class="main-container">
+        <section class="content">
+            <h2 style="font-weight: bold;">Employee Management</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">ID</th>
+                            <th style="width: 20%;">Name(s)</th>
+                            <th style="width: 15%;">Dept</th>
+                            <th style="width: 15%;">Age</th>
+                            <th style="width: 20%;">Job Title</th>
+                            <th style="width: 15%;">Gender</th>
+                            <th style="width: 15%;">Details</th>
+                            <th style="width: 10%">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let employee of filteredEmployees,index as i">
+                            <td>{{ i+1}}</td>
+                            <td>{{ employee.fullName }}</td>
+                            <td>{{ employee.department }}</td>
+                            <td>{{ employee.age }}</td>
+                            <td>{{ employee.designation }}</td>
+                            <td>{{ employee.gender }}</td>
+                            <td>
+                                <button class="view-profile" (click)="viewProfile(employee.email)">View Profile</button>
+                            </td>
+                            <td>
+                                <button class="delete-btn" (click)="deleteEmployee(employee.email)">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- No Record Found -->
+                        <tr *ngIf="filteredEmployees.length === 0">
+                            <td colspan="8"
+                                style="height: 200px; text-align: center; vertical-align: middle; color: red; font-size: 18px;font-weight: bold;">
+                                {{ teamId ? 'No employees found for this team' : 'No employees found' }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+<app-footer />

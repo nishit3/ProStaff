@@ -1,0 +1,93 @@
+spring:
+
+   cloud:
+
+    gateway:
+
+      globalcors:
+
+        cors-configurations:
+          '[/**]':
+           allowedOrigins: "http://localhost:4200"
+           allowedMethods: "*"
+           allowedHeaders: "*"
+           allowCredentials: true
+
+      routes:
+        
+        - id: Service-Auth
+          uri: lb://SERVICE-AUTH
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Admin-Logger
+          uri: lb://SERVICE-ADMIN-LOGGER
+          predicates:
+            - Path=/admin-logs/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Employee
+          uri: lb://SERVICE-EMPLOYEE
+          predicates:
+            - Path=/employee/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Salary
+          uri: lb://SERVICE-SALARY
+          predicates:
+            - Path=/salary/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Team
+          uri: lb://SERVICE-TEAM
+          predicates:
+            - Path=/team/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Department
+          uri: lb://SERVICE-DEPARTMENT
+          predicates:
+            - Path=/department/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Designation
+          uri: lb://SERVICE-DESIGNATION
+          predicates:
+            - Path=/designation/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Attendance
+          uri: lb://SERVICE-ATTENDANCE
+          predicates:
+            - Path=/attendance/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Leave-Request
+          uri: lb://SERVICE-LEAVE-REQUEST
+          predicates:
+            - Path=/leave-request/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Organization
+          uri: lb://SERVICE-ORGANIZATION
+          predicates:
+            - Path=/organization/**
+          filters:
+            - RequestFilter
+
+        - id: Service-Notification
+          uri: lb://SERVICE-NOTIFICATION
+          predicates:
+            - Path=/notification/**
+          filters:
+            - RequestFilter

@@ -1,0 +1,43 @@
+.custom-dialog {
+    width: 100%;
+    max-width: 600px; /* Adjust width as needed */
+    background-color: #043873;
+    padding: 0;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.notifications-list {
+    width: 100%;
+}
+
+.scrollable-container {
+    max-height: 300px; /* Adjust height for scrolling */
+    overflow-y: auto;
+    width: 100%;
+}
+
+.list-group {
+    width: 100%;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.list-group-item {
+    border-bottom: 2px solid rgba(7, 7, 7, 0.3); /* Make divider more visible */
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 0px;
+    
+}
+.divider {
+    margin: 0;
+    border: 0;
+    height: 1px;
+    background-color: #ccc; /* Adjust color if needed */
+    width: 100%;
+}
+
+.text-muted {
+    color: red;
+}
