@@ -170,7 +170,7 @@ public class UserServiceImpl implements UserService{
 			System.setProperty("https.protocols", "TLSv1.2");
 			System.setProperty("jdk.internal.httpclient.disableHostnameVerification", "true");
 			
-            RazorpayClient razorpay = new RazorpayClient("rzp_test_shfEe2LrMp8nj7", "zd26d14FuCkuGSsn3S8DCe34");
+            RazorpayClient razorpay = new RazorpayClient("ID", "SECRET");
 
             JSONObject orderRequest = new JSONObject();
             orderRequest.put("amount", 100); // In paise (INR * 100)
@@ -276,7 +276,7 @@ public class UserServiceImpl implements UserService{
         	System.setProperty("jdk.internal.httpclient.disableHostnameVerification", "true");
         	
             String data = orderId + "|" + paymentId;
-            return Utils.verifySignature(data, signature, "zd26d14FuCkuGSsn3S8DCe34");
+            return Utils.verifySignature(data, signature, "SECRET");
             
         } catch (Exception e) {
             e.printStackTrace();
