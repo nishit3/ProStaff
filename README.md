@@ -1,5 +1,6 @@
 Employee / Human Resource Management System
 
+Class Diagram:-
 ![image](https://github.com/user-attachments/assets/7c88b114-f055-427f-8b7a-ab51dbfa8558)
 
 ![image](https://github.com/user-attachments/assets/b7622a2e-e918-4fca-9a55-78ec507e5009)
