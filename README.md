@@ -79,32 +79,3 @@ Employee Check-In:-
 
 Employee Check-out:-
 ![image](https://github.com/user-attachments/assets/25f43754-66f3-4bab-afb6-f9318adcdd01)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
