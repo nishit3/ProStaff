@@ -10,26 +10,33 @@ ProStaff is a full-fledged **Human Resource Management System (HRMS)** designed 
 
 ### 👨‍💼 HR & Employee Management
 - Add, update, and manage employees
-- Role-based access control (Admin/HR/Employee)
-- Department & team assignment
+- Role-based access control (Admin/HR, Employee)
+- Department, Designation & team assignment
 
 ### 📄 Leave & Attendance Tracking
 - Leave application and approval system
 - Attendance status updates
 
 ### 💳 Salary Management
-- Auto-generated monthly payslips
 - Razorpay payment integration with real-time status tracking
 - Track salary payment history
 
 ### 🧩 Microservices Architecture
 - Modular services:
-  - `employee-service`
+  - `attendance-service`
   - `department-service`
-  - `payslip-service`
-  - `razorpay-service`
+  - `designation-service`
+  - `employee-service`
+  - `leave-request-service`
   - `gateway-service`
-  - `discovery-service` (Spring Cloud Eureka)
+  - `admin-manager-service`
+  - `organization-service`
+  - `notification-service`
+  - `team-service`
+  - `auth-service`
+  - `salary-service`
+  - `admin-logger-service`
+  - `registry-service` (Spring Cloud Eureka)
 
 ---
 
@@ -42,15 +49,12 @@ ProStaff is a full-fledged **Human Resource Management System (HRMS)** designed 
 | Database | MySQL |
 | Payment Integration | Razorpay |
 | Cloud Support | AWS-ready (EC2/RDS/DynamoDB integration possible) |
-| Scheduler | Spring Scheduler for automated payroll |
-| API Documentation | Swagger (to be added) |
-| Auth (Upcoming) | JWT-based authentication and RBAC |
+| Scheduler | Spring Scheduler |
+| Auth | JWT-based authentication and authorization |
 
 ---
 
 ## 🏗️ Architecture
-
-![Architecture Diagram](https://github.com/nishit3/ProStaff/blob/main/assets/architecture.png) <!-- Replace with actual path once added -->
 
 - Gateway Service → Central routing and entry point
 - Eureka Discovery → Dynamic registration and discovery of microservices
@@ -75,6 +79,8 @@ ProStaff is a full-fledged **Human Resource Management System (HRMS)** designed 
    ```bash
    git clone https://github.com/nishit3/ProStaff.git
    cd ProStaff
+
+
 
 
 Class Diagram:-
