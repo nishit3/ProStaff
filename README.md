@@ -1,4 +1,81 @@
-Employee / Human Resource Management System
+# ProStaff – Enterprise HR / Employee Management System
+
+ProStaff is a full-fledged **Human Resource Management System (HRMS)** designed with a microservices architecture using **Java Spring Boot**, **Angular**, and **MySQL**. It supports employee onboarding, department/team structuring, leave tracking, payslip generation, Razorpay-based salary payments, and admin-level control with a scalable, cloud-ready structure.
+
+> ⚙️ Built to simulate real-world enterprise-grade HR solutions, focusing on modularity, scalability, and payment integration.
+
+---
+
+## 📌 Features
+
+### 👨‍💼 HR & Employee Management
+- Add, update, and manage employees
+- Role-based access control (Admin/HR/Employee)
+- Department & team assignment
+
+### 📄 Leave & Attendance Tracking
+- Leave application and approval system
+- Attendance status updates
+
+### 💳 Salary Management
+- Auto-generated monthly payslips
+- Razorpay payment integration with real-time status tracking
+- Track salary payment history
+
+### 🧩 Microservices Architecture
+- Modular services:
+  - `employee-service`
+  - `department-service`
+  - `payslip-service`
+  - `razorpay-service`
+  - `gateway-service`
+  - `discovery-service` (Spring Cloud Eureka)
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | Angular, TypeScript, Bootstrap |
+| Backend | Java, Spring Boot, Spring Cloud (Eureka, Gateway) |
+| Database | MySQL |
+| Payment Integration | Razorpay |
+| Cloud Support | AWS-ready (EC2/RDS/DynamoDB integration possible) |
+| Scheduler | Spring Scheduler for automated payroll |
+| API Documentation | Swagger (to be added) |
+| Auth (Upcoming) | JWT-based authentication and RBAC |
+
+---
+
+## 🏗️ Architecture
+
+![Architecture Diagram](https://github.com/nishit3/ProStaff/blob/main/assets/architecture.png) <!-- Replace with actual path once added -->
+
+- Gateway Service → Central routing and entry point
+- Eureka Discovery → Dynamic registration and discovery of microservices
+- Angular Frontend → Consumes backend APIs via Gateway
+- Razorpay Integration → Connected to the backend for secure payments
+
+---
+
+## 🚀 Getting Started
+
+### 🔧 Prerequisites
+- JDK 17+
+- Node.js 18+
+- MySQL 8+
+- Maven
+- Angular CLI
+- (Optional) Docker & Docker Compose
+
+### 🧪 Running Locally
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/nishit3/ProStaff.git
+   cd ProStaff
+
 
 Class Diagram:-
 ![image](https://github.com/user-attachments/assets/7c88b114-f055-427f-8b7a-ab51dbfa8558)
